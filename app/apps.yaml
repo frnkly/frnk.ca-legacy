@@ -1,0 +1,11 @@
+# Apps to include in dev portfolio.
+---
+-
+  name: 'Riu'
+  route: 'riu'
+-
+  name: 'Statsful'
+  route: 'statsful'
+-
+  name: 'Joomla! Linkr'
+  route: 'linkr'

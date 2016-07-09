@@ -1,0 +1,16 @@
+# Projects ready to be displayed to the public.
+-
+  name: 'Montreal Solar Decathlon, 2013-2014'
+  route: 'decathlon'
+-
+  name: 'Look Kool kids show, 2014 & 2015'
+  route: 'look-kool'
+-
+  name: 'Assisting teachers in Ghana, 2014'
+  route: 'maltiti'
+-
+  name: 'Engineering end-year project, 2013'
+  route: 'capstone'
+-
+  name: 'National Society of Black Engineers'
+  route: 'nsbe'

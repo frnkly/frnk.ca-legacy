@@ -1,0 +1,38 @@
+# List of backgrounds and their details.
+---
+-
+  src-scaled: '3327BBD9D1BA0DB872CD71CC4A9FFB7E.scaled.jpg'
+  src-large: '3327BBD9D1BA0DB872CD71CC4A9FFB7E.jpg'
+  project-name: 'Engineering end-year project, 2013'
+#  project-route: 'capstone'
+-
+  src-scaled: '252F440A762470B406F17718DD089955.scaled.jpg'
+  src-large: '252F440A762470B406F17718DD089955.jpg'
+  project-name: 'All girls school, Tamale, 2014'
+#  project-route: 'maltiti'
+  credits: 'Ksenia Dvoryashina'
+  credits-uri: 'http://500px.com/Ksenia_Dv'
+-
+  src-scaled: '581CD946B00836E5819A14AD582234A3.scaled.jpg'
+  src-large: '581CD946B00836E5819A14AD582234A3.jpg'
+  project-name: 'Village Chief, Northern Ghana'
+#  project-route: 'maltiti'
+  credits: 'Ksenia Dvoryashina'
+  credits-uri: 'http://500px.com/Ksenia_Dv'
+-
+  src-scaled: 'C73317F7E19037282F5AA0EDBB69D996.scaled.jpg'
+  src-large: 'C73317F7E19037282F5AA0EDBB69D996.jpg'
+  project-name: 'Village, Northern Ghana, 2014'
+#  project-route: 'maltiti'
+  credits: 'Ksenia Dvoryashina'
+  credits-uri: 'http://500px.com/Ksenia_Dv'
+-
+  src-scaled: 'CB56AC1D2BE560DD61D752B608A9CFB2.scaled.jpg'
+  src-large: 'CB56AC1D2BE560DD61D752B608A9CFB2.jpg'
+  project-name: 'Look Kool kids show, 2014'
+#  project-route: 'look-kool'
+-
+  src-scaled: 'E579646C1B46D072CAED4AC8055AD72E.scaled.jpg'
+  src-large: 'E579646C1B46D072CAED4AC8055AD72E.jpg'
+  project-name: 'Look Kool kids show, 2014'
+#  project-route: 'look-kool'
