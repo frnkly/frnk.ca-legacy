@@ -13,7 +13,13 @@
     $newReleaseName = date('Ymd-His');
     $productionServer = env('ENVOY_PRODUCTION_SERVER');
 
-    $appKey = 'SomeRandomString...';
+    // Generate a random app key.
+    $appKey = '';
+    $keyspace = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ `~!@#$%^&*()_+-={}[]:"|;\'\\<>?,./';
+    $max = mb_strlen($keyspace, '8bit') - 1;
+    for ($i = 0; $i < 32; ++$i) {
+        $appKey .= $keyspace[random_int(0, $max)];
+    }
 
     /**
      * Logs a message to the console.
@@ -161,7 +167,7 @@
     composer dump-autoload;
 
     # Clear the OPCache
-    sudo service php5-fpm restart
+    #sudo service php5-fpm restart
 
 @endtask
 
