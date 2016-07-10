@@ -15,7 +15,7 @@
 
     // Generate a random app key.
     $appKey = '';
-    $keyspace = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ `~!@#$%^&*()_+-={}[]:"|;\'\\<>?,./';
+    $keyspace = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ `~!@#$%^&*()_+-={}[]:"|;<>?,./';
     $max = mb_strlen($keyspace, '8bit') - 1;
     for ($i = 0; $i < 32; ++$i) {
         $appKey .= $keyspace[random_int(0, $max)];
@@ -101,7 +101,7 @@
     touch .env
     echo APP_ENV=production >> .env
     echo APP_DEBUG=false >> .env
-    echo APP_KEY={{ $appKey }} >> .env
+    echo APP_KEY="{{ $appKey }}" >> .env
     echo CACHE_DRIVER=file >> .env
 
 @endtask
