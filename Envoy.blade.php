@@ -101,7 +101,7 @@
     touch .env
     echo APP_ENV=production >> .env
     echo APP_DEBUG=false >> .env
-    echo APP_KEY="{{ $appKey }}" >> .env
+    echo APP_KEY='{{ $appKey }}' >> .env
     echo CACHE_DRIVER=file >> .env
 
 @endtask
@@ -184,6 +184,22 @@
     else
         echo "No releases found for purging at this time";
     fi
+
+@endtask
+
+@task('init', ['on' => 'production'])
+
+    # Check apps directory.
+    {{ msg('Checking apps directory...') }}
+    mkdir -p {{ $baseDir }};
+    mkdir -p {{ $releasesDir }};
+
+    # Make sure the persistent storage directory exists.
+    mkdir -p {{ $baseDir }}/storage;
+    mkdir -p {{ $baseDir }}/storage/app;
+    mkdir -p {{ $baseDir }}/storage/framework/sessions;
+    mkdir -p {{ $baseDir }}/storage/framework/views;
+    mkdir -p {{ $baseDir }}/storage/logs;
 
 @endtask
 
