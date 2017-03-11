@@ -5,13 +5,13 @@
     (new \Dotenv\Dotenv(__DIR__, '.env'))->load();
 
     # Setup variables.
-    $localDir = env('ENVOY_LOCAL_DIR');
-    $repository = 'git@github.com:frnkly/frnk.ca.git';
-    $baseDir = env('ENVOY_REPO_DIR');
-    $releasesDir = "{$baseDir}/releases";
-    $liveDir = env('ENVOY_LIVE_DIR');
-    $newReleaseName = date('Ymd-His');
-    $productionServer = env('ENVOY_PRODUCTION_SERVER');
+    $localDir           = env('ENVOY_LOCAL_DIR');
+    $repository         = 'git@deployer:frnkly/frnk.ca.git';
+    $baseDir            = env('ENVOY_REPO_DIR');
+    $releasesDir        = "{$baseDir}/releases";
+    $liveDir            = env('ENVOY_LIVE_DIR');
+    $newReleaseName     = date('Ymd-His');
+    $productionServer   = env('ENVOY_PRODUCTION_SERVER');
 
     // Generate a random app key.
     $appKey = '';
@@ -129,7 +129,7 @@
     # Update group owner and permissions
     chgrp -R www-data {{ $newReleaseName }};
     chmod -R ug+rwx {{ $newReleaseName }};
-    chmod -Rf 1777 {{ $newReleaseName }}/storage;
+    chmod -R 1777 {{ $newReleaseName }}/storage;
 
 @endtask
 
@@ -148,7 +148,7 @@
     rm -rf {{ $releasesDir }}/{{ $newReleaseName }}/storage;
     cd {{ $releasesDir }}/{{ $newReleaseName }};
     ln -nfs {{ $baseDir }}/storage storage;
-    chmod -Rf 1777 {{ $baseDir }}/storage;
+    chmod -R 1777 {{ $baseDir }}/storage;
 
     ln -nfs {{ $releasesDir }}/{{ $newReleaseName }} {{ $liveDir }};
     chgrp -h www-data {{ $liveDir }};
@@ -216,19 +216,24 @@
 
 {{-- Testing Envoy --}}
 
+@story('test')
+
+    test-local
+    test-prod
+
+@endstory
+
 @task('test-local', ['on' => 'local'])
 
     {{ msg('Testing Envoy on localhost...') }}
 
-    ls -a
+    ls
 
 @endtask
 
-@task('test-production', ['on' => 'production'])
+@task('test-prod', ['on' => 'production'])
 
     {{ msg('Testing Envoy on production server...') }}
-
-    cd {{ $releasesDir }}
-    ls -a
+    ssh -T git@deployer
 
 @endtask
