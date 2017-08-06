@@ -85,7 +85,7 @@ footer .bg-info {
  */
 article {
     margin: 30px auto 0;
-    padding: 15px 0;
+    padding: 15px 10px;
     width: 90%;
 	text-align: center;
     box-shadow: 5px 5px 15px rgba(10, 10, 10, .7);

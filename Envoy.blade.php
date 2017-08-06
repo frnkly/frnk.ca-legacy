@@ -133,7 +133,6 @@
     rm -rf {{ $releasesDir }}/{{ $newReleaseName }}/storage;
     cd {{ $releasesDir }}/{{ $newReleaseName }};
     ln -nfs {{ $baseDir }}/storage storage;
-    chmod -R 1777 {{ $baseDir }}/storage;
 
     ln -nfs {{ $releasesDir }}/{{ $newReleaseName }} {{ $liveDir }};
     chgrp -h www-data {{ $liveDir }};

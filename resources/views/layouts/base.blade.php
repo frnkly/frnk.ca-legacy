@@ -19,8 +19,8 @@
         <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Julius+Sans+One" />
 		<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" />
 		<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" />
-		<link rel="stylesheet" type="text/css" href="assets/css/main.css" />
-		<link rel="stylesheet" media="handheld, screen and (min-width: 620px)" type="text/css" href="assets/css/620.css" />
+		<link rel="stylesheet" type="text/css" href="assets/css/main.css?170806d" />
+		<link rel="stylesheet" media="handheld, screen and (min-width: 620px)" type="text/css" href="assets/css/620.css?170806d" />
 
 		{{-- Use a random background on every page load. --}}
 		@inject('randomBackground', 'App\Services\RandomBackground')
