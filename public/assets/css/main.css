@@ -75,13 +75,13 @@ footer a, footer a:link, footer a:visited {
 footer .bg-info {
     position: absolute;
     right: 10px;
-    bottom: 0;
+    bottom: 20px;
 }
 
 
 /*
  * Page styles
- * 
+ *
  */
 article {
     margin: 30px auto 0;
@@ -101,7 +101,7 @@ article .content {
 
 /*
  * Misc
- * 
+ *
  */
 .center { text-align: center; }
 .clear { clear: both; }
@@ -172,7 +172,7 @@ article .content {
 
 /*
  * Icons
- * 
+ *
  */
 .project-icon {
 	float: right;
