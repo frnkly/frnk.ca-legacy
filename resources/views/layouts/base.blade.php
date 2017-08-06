@@ -42,12 +42,12 @@
 
         <div class="bg-info">
             <a href="{!! $randomBackground->getProjectUri() !!}">
-                Background: {{ $randomBackground->getProjectName() }}
+                Background image: {{ $randomBackground->getProjectName() }}
             </a>
 
             @if ($randomBackground->getCredits())
                 <a href="{!! $randomBackground->getCreditsUri() !!}" target="_blank">
-                    (Photo cred: {{ $randomBackground->getCredits() }})
+                    (credits: {{ $randomBackground->getCredits() }})
                 </a>
             @endif
         </div>
