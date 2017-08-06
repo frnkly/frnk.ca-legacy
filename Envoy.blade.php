@@ -61,13 +61,6 @@
 
 @endmacro
 
-@task('deploy-code', ['on' => 'production'])
-
-    cd {{ $liveDir }}
-    git pull origin master
-
-@endtask
-
 @task('git-clone')
 
     {{ msg('Cloning git repository...') }}
@@ -80,13 +73,6 @@
 
     # Clone the repository into a new folder.
     git clone --depth 1 {{ $repository }} {{ $newReleaseName }}  &> /dev/null;
-
-    # Configure sparse checkout.
-    cd {{ $newReleaseName }};
-    git config core.sparsecheckout true;
-    echo "*" > .git/info/sparse-checkout;
-    echo "!storage" >> .git/info/sparse-checkout;
-    git read-tree -mu HEAD;
 
 @endtask
 
@@ -114,7 +100,6 @@
     cd {{ $releasesDir }}/{{ $newReleaseName }};
 
     # Install composer dependencies.
-    composer self-update &> /dev/null;
     composer install --prefer-dist --no-scripts --no-dev -q -o &> /dev/null;
 
 @endtask
@@ -165,9 +150,6 @@
     # Optimize installation.
     php artisan cache:clear;
     composer dump-autoload;
-
-    # Clear the OPCache
-    #sudo service php5-fpm restart
 
 @endtask
 
