@@ -6,7 +6,7 @@
 
     # Setup variables.
     $localDir           = env('ENVOY_LOCAL_DIR');
-    $repository         = 'git@deployer:frnkly/frnk.ca.git';
+    $repository         = 'deployer:frnkly/frnk.ca.git';
     $baseDir            = env('ENVOY_REPO_DIR');
     $releasesDir        = "{$baseDir}/releases";
     $liveDir            = env('ENVOY_LIVE_DIR');
@@ -130,11 +130,11 @@
     mkdir -p {{ $baseDir }}/storage/logs;
 
     # Remove the storage directory and replace with persistent data
-    rm -rf {{ $releasesDir }}/{{ $newReleaseName }}/storage;
+    rm -fr {{ $releasesDir }}/{{ $newReleaseName }}/storage;
     cd {{ $releasesDir }}/{{ $newReleaseName }};
-    ln -nfs {{ $baseDir }}/storage storage;
+    ln -fns {{ $baseDir }}/storage storage;
 
-    ln -nfs {{ $releasesDir }}/{{ $newReleaseName }} {{ $liveDir }};
+    ln -fns {{ $releasesDir }}/{{ $newReleaseName }} {{ $liveDir }};
     chgrp -h www-data {{ $liveDir }};
 
 @endtask
@@ -143,7 +143,6 @@
 
     {{ msg('Optimizing...') }}
 
-    #cd {{ $releasesDir }}/{{ $newReleaseName }};
     cd {{ $liveDir }};
 
     # Optimize installation.
@@ -231,6 +230,6 @@
 @task('test-prod', ['on' => 'production'])
 
     {{ msg('Testing Envoy on production server...') }}
-    ssh -T git@deployer
+    ssh -T deployer
 
 @endtask
